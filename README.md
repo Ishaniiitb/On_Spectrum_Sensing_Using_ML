@@ -1,4 +1,4 @@
-# On_Spectrum_Sensing_Using_ML
+# On Spectrum Sensing, a Machine Learning Method for Cognitive Radio Systems
 
 ## Problem Statement
 
