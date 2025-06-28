@@ -22,10 +22,15 @@ Build a system that:
 ## 📂 Project Structure
 
 On_Spectrum_Sensing_Using_ML/
+
 │
+
 ├── SourceCode.ipynb # Main Jupyter notebook with dataset generation and ML models
+
 ├── README.md # Overview of the project
+
 ├── Final_Presentation.pptx # Project presentation slides
+
 ├── On_Spectrum_Sensing_a_...pdf # Full project report/paper
 
 
