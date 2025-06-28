@@ -1,23 +1,101 @@
-# On Spectrum Sensing, a Machine Learning Method for Cognitive Radio Systems
+# On Spectrum Sensing Using Machine Learning
 
-## Problem Statement
+This project proposes a machine learning-based approach for **spectrum sensing** in **Cognitive Radio Systems**, aimed at improving the efficiency of radio spectrum usage. The solution simulates the behavior of primary users in a communication channel and classifies channel occupancy using supervised learning models.
 
-The development and breakthroughs made in the field of communication and related systems has lead to a drastic increase in the consumption of the radio spectrum (the frequency spectrum over which most of the wireless communication occurs). Radio spectrum being a finite resource, has lead to its deficit. 
+## 📌 Problem Statement
 
-In order to sovle this problem, efficient management and allocation of radio spectrum amongst various users is of utmost priority. This is where machine learning steps in the picture. We propose an ML oriented model, which analyses the particular frequency channel, and depending on its behaviour and state, does 1 of the 2 following options : 
+Due to the explosion in wireless communication, radio spectrum—a finite resource—is becoming increasingly congested. Traditional static allocation leads to underutilization and inefficiency. This project applies machine learning to dynamically assess and allocate frequency channels by sensing whether a channel is occupied by a primary user or not.
 
-1) Makes the frequency channel avaiable to other users who are in need of the radio spectrum.
-2) Reserves that frequency channel for a primary user and doesn't allow any other users to take over the current channel, which is in use.
+## 🧠 Objective
 
-## Proposed Design
+Build a system that:
+- **Detects spectrum occupancy** using energy statistics.
+- **Classifies channels** as occupied (reserved for primary users) or free (available to secondary users).
+- Uses **ML classifiers** such as:
+  - Random Forest
+  - Support Vector Machine
+  - Logistic Regression
+  - K-Nearest Neighbors
+  - Naive Bayes
+  - Decision Tree
 
-The proposed system has been divided into multiple sub-phases for easier understanding and sequential execution : 
+## 📂 Project Structure
 
-### 1) Generation of synthetic dataset :
+On_Spectrum_Sensing_Using_ML/
+│
+├── SourceCode.ipynb # Main Jupyter notebook with dataset generation and ML models
+├── README.md # Overview of the project
+├── Final_Presentation.pptx # Project presentation slides
+├── On_Spectrum_Sensing_a_...pdf # Full project report/paper
 
-In this particular step we artifically generate a synthetic dataset using functions (most of them comming from the random package in python). First we assume 1 of 2 hypothesis : 
 
-1) H(a) : In this hypothesis we assume that the primary user is absent or is not transmitting any signal actively. This means that the particular channel as of now is only carrying a noise signal, and the total energy statistic of the channel will be the energy of the noise signal.
-2) H(p) : In this hypothesis we assume that the primary user is present and is actively transmitting a signal. This means that the energy statistic of the channel will the sum of both, the energy statistic of the signal being transmitted by the user and the energy statistic of the noise signal.
+## ⚙️ How It Works
 
-This property of the frequency channel, i.e, the energy statistic, is vital for predicting the presence of a primary user. So we generate two datasets, a training dataset (of size 10,000 samples) and a testing dataset (of size 8,000 samples). We first pass these datasets through a K-means clustering algorithm, in order to convert this unlabelled dataset into a labeled dataset for our suprvised ML models which will come later on.
+1. **Data Generation**: 
+   - Simulates communication signals with or without primary users using statistical modeling.
+   - Calculates **energy statistics** of received signals.
+   - Applies **K-Means clustering** to label signals as occupied or free.
+
+2. **Feature Engineering**:
+   - Uses log-energy values.
+   - Normalizes features for better classifier performance.
+
+3. **Model Training**:
+   - Uses a variety of ML classifiers.
+   - Trains on simulated labeled datasets.
+
+4. **Evaluation**:
+   - Computes **confusion matrices** and **accuracy scores**.
+   - Compares performance across models.
+
+## 📊 Dataset
+
+Generated synthetic datasets using custom parameters:
+- 10,000 training samples
+- 8,000 testing samples
+
+Each sample includes:
+- Energy statistic (float)
+- Label (0: free, 1: occupied)
+
+## 📈 Results
+
+- Classifiers were evaluated using:
+  - Confusion Matrix
+  - Accuracy Score
+  - Stratified K-Fold Cross-Validation
+- Random Forest and SVM showed high performance and stability.
+
+## 🛠 Dependencies
+
+- Python 3.x
+- NumPy
+- scikit-learn
+- Matplotlib (for visualization)
+
+## ▶️ Run Instructions
+Clone the repository or unzip the project.
+
+Open SourceCode.ipynb in Jupyter Notebook.
+
+Run the cells sequentially to:
+
+Generate data
+
+Train models
+
+Evaluate performance
+
+## 📚 References
+Based on the paper: On Spectrum Sensing, a Machine Learning Method for Cognitive Radio Systems (included in the repo)
+
+Techniques inspired by energy detection and ML classification methods used in signal processing.
+
+## 👥 Authors
+Ishan Jha and Aryan Mishra.
+
+Install dependencies using:
+
+```bash
+pip install numpy scikit-learn matplotlib
+
